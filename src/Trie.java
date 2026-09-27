@@ -64,4 +64,23 @@ public class Trie {
             }
         }
     }
+
+    public void eliminar(String w) {
+        if (!buscar(w)) {
+            return;
+        }
+        NodoTrie nodoActual = root;
+
+        for (int i = 0; i < w.length(); i++) {
+            char letra = w.charAt(i);
+            int indice = letra - 'A';
+
+            if (i == w.length() - 1) {
+                int mascara = ~(1 << indice);
+                nodoActual.B = nodoActual.B & mascara;
+            } else {
+                nodoActual = nodoActual.P[indice];
+            }
+        }
+    }
 }
