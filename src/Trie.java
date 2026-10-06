@@ -86,6 +86,7 @@ public class Trie {
             }
         }
     }
+
     public List<String> Autocompletar(String s){
         List<String> PalabrasCompletas=new ArrayList<>();
         if(s==null||s.isEmpty()|| root==null){
